@@ -36,7 +36,7 @@ int main() {
 	curandGenerateUniform(random_generator, random_x, count);
 	curandGenerateUniform(random_generator, random_y, count);
 
-    measure_points << <width, height >> > (random_x, random_y);
+    	measure_points <<<width, height>>> (random_x, random_y);
     
 	int total_host_points;
 	cudaMemcpyFromSymbol(&total_host_points, total_device_points, sizeof(int));
